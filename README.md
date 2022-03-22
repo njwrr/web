@@ -1,12 +1,12 @@
-# opendota-web
+# dotamax
 
 [![Help Contribute to Open Source](https://www.codetriage.com/odota/web/badges/users.svg)](https://www.codetriage.com/odota/web)
 
-OpenDota Web UI: A web interface for viewing Dota 2 data. This utilizes the [OpenDota API](https://docs.opendota.com), which is also an [open source project](https://github.com/odota/core).
+DotaMax Web UI: A web interface for viewing Dota 2 data. This utilizes the [DotaMax API](https://www.dotamax.club), which is also an [open source project](https://github.com/njwrr/core).
 
 ## Quickstart
 
-- Clone the repo using `git clone git://github.com/odota/web`
+- Clone the repo using `git clone git://github.com/njrrxx/web`
 
 ### With Docker
 
@@ -40,7 +40,7 @@ $ docker-compose up
 
 - You can set the following environment variables:
   - PORT: Changes the port that the development server runs on
-  - REACT_APP_API_HOST: Changes the API that the UI requests data from (default https://api.opendota.com)
+  - REACT_APP_API_HOST: Changes the API that the UI requests data from (default https://api.dotamax.club)
 
 ## Tech Stack
 
@@ -52,14 +52,13 @@ $ docker-compose up
 
 - If you're interested in contributing regularly, let us know and we'll add you to the organization.
 - The `master` branch is automatically deployed to the stage environment.
-- We'll periodically ship releases to production: https://www.opendota.com
+- We'll periodically ship releases to production: https://www.dotamax.club
 
 ## Notes
 
 - You don't have to set up the entire stack (databases, etc.), or worry about getting starter data, since the UI points to the production API.
 - Use the configuration to point to your own API (if you are working on a new feature and want to start building the UI before it's deployed to production).
-- Discord: https://discord.gg/opendota
-  - Strongly recommended for active developers! We move fast and it's helpful to be up to speed with everything that's happening.
+- Strongly recommended for active developers! We move fast and it's helpful to be up to speed with everything that's happening.
 
 ## Resources
 

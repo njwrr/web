@@ -10,4 +10,4 @@ I need help with...
 
 ---
 
-If you have a support request or question please also check our Discord Server: https://discord.gg/opendota
+If you have a support request or question please also check our Discord Server: https://discord.gg/DotaMax

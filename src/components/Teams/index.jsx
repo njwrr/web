@@ -95,7 +95,7 @@ class RequestLayer extends React.Component {
           {process.env.REACT_APP_ENABLE_RIVALRY && <FlatButton
             label={strings.app_rivalry}
             icon={<img src="/assets/images/rivalry-icon.png" alt="" height="24px" />}
-            href="https://rivalry.com/opendota"
+            href="https://rivalry.com/DotaMax"
             target="_blank"
             rel="noopener noreferrer"
           />}

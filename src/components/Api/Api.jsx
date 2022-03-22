@@ -205,7 +205,7 @@ class KeyManagement extends React.Component {
                   { showGetKeyButton
                     ? (
                       <StripeCheckout
-                        name="OpenDota"
+                        name="DotaMax"
                         description={strings.api_title}
                         billingAddress
                         stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}
@@ -218,7 +218,7 @@ class KeyManagement extends React.Component {
                     )
                     : <span />
                 }
-                  <RaisedButton href="//docs.opendota.com" target="_blank" rel="noopener noreferrer" label={strings.api_docs} style={{ margin: '5px 5px' }} />
+                  <RaisedButton href="//docs.DotaMax.com" target="_blank" rel="noopener noreferrer" label={strings.api_docs} style={{ margin: '5px 5px' }} />
                   { this.state.customer
                     ? (
                       <div>
@@ -229,8 +229,8 @@ class KeyManagement extends React.Component {
                               <KeyContainer>{this.state.customer.api_key}</KeyContainer>
                               <p>{strings.api_key_usage.replace('$param', 'api_key=XXXX')}</p>
                               <div style={{ overflow: 'hidden' }}>
-                                <a href={`https://api.opendota.com/api/matches/271145478?api_key=${this.state.customer.api_key}`}>
-                                  <KeyContainer>{`https://api.opendota.com/api/matches/271145478?api_key=${this.state.customer.api_key}`}</KeyContainer>
+                                <a href={`https://api.DotaMax.com/api/matches/271145478?api_key=${this.state.customer.api_key}`}>
+                                  <KeyContainer>{`https://api.DotaMax.com/api/matches/271145478?api_key=${this.state.customer.api_key}`}</KeyContainer>
                                 </a>
                               </div>
                               <p>
@@ -241,10 +241,10 @@ class KeyManagement extends React.Component {
                                     .replace('$last4', this.state.customer.credit_last4)}`
                             }
                               </p>
-                              <p>{strings.api_support.replace('$email', 'api@opendota.com')}</p>
+                              <p>{strings.api_support.replace('$email', 'api@DotaMax.com')}</p>
                               <RaisedButton label={strings.api_delete} style={{ margin: '5px 5px' }} onClick={this.handleDelete} />
                               <StripeCheckout
-                                name="OpenDota"
+                                name="DotaMax"
                                 description={strings.api_title}
                                 billingAddress
                                 stripeKey={process.env.REACT_APP_STRIPE_PUBLIC_KEY}

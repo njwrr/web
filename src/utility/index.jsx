@@ -170,7 +170,7 @@ export const IMAGESIZE_ENUM = {
   },
 
   // if you ever wanna see what the above look like (change the suffix):
-  // https://api.opendota.com/apps/dota2/images/heroes/abaddon_full.png
+  // https://api.DotaMax.com/apps/dota2/images/heroes/abaddon_full.png
 };
 
 const getTitle = (row, col, heroName) => {
@@ -664,7 +664,7 @@ export function displayHeroIdWithMoreMmr(row, col, field) {
   let url = 'https://moremmr.com/en/heroes/';
   if (heroes[row[col.field]] && heroes[row[col.field]].localized_name) {
     const heroName = heroes[row[col.field]].localized_name.toLowerCase().replace(' ', '-');
-    url = `https://moremmr.com/en/heroes/${heroName}/videos?utm_source=opendota&utm_medium=heroes&utm_campaign=${heroName}`;
+    url = `https://moremmr.com/en/heroes/${heroName}/videos?utm_source=DotaMax&utm_medium=heroes&utm_campaign=${heroName}`;
   }
 
   return displayHeroId(row, col, field, true, url, 'MOREMMR');

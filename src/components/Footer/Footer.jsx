@@ -153,38 +153,6 @@ const StyledHr = styled.hr`
 
 const Footer = ({ strings }) => (
   <StyledFooter>
-    <div className="links">
-      <div className="logoNsocial">
-        <AppLogo />
-        <SocialLinks strings={strings} />
-        <div className="mobile">
-          <a
-            href="https://play.google.com/store/apps/details?id=com.opendota.mobile&hl=en"
-            style={{ position: 'relative', left: '13px', top: '12px' }}
-          >
-            <img src="/assets/images/google_play_store.png" alt="download the android app on google play store" height="46px" />
-          </a>
-          <a
-            href="https://itunes.apple.com/us/app/opendota/id1354762555?ls=1&mt=8"
-            style={{ position: 'relative', left: '20px', top: '5px' }}
-          >
-            <img src="/assets/images/apple_app_store.png" alt="download the iOS app on the app store" height="31px" />
-          </a>
-        </div>
-      </div>
-      <small className="about">
-        <span id="app-description">{strings.app_description}</span>
-        {' - '}
-        <span id="app-powered-by">{strings.app_powered_by}</span>
-        <a href="http://steampowered.com" aria-describedby="app-description app-powered-by" target="_blank" rel="noopener noreferrer">
-          <IconSteam />
-        </a>
-      </small>
-      <StyledHr />
-      <div className="pages">
-        <PageLinks />
-      </div>
-    </div>
     {/* <Cheese /> */}
   </StyledFooter>
 );

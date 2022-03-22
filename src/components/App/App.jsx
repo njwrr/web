@@ -192,12 +192,12 @@ const App = (props) => {
         <AdBannerDiv>
           {includeAds && process.env.REACT_APP_ENABLE_RIVALRY && (
             <div style={{ fontSize: '12px' }}>
-              <a href="https://www.rivalry.com/opendota">
+              <a href="https://www.rivalry.com/DotaMax">
                 <img src="/assets/images/rivalry-banner.gif" alt="" />
               </a>
               <div>
                 {strings.home_sponsored_by}{' '}
-                <a href="https://www.rivalry.com/opendota">Rivalry</a>
+                <a href="https://www.rivalry.com/DotaMax">Rivalry</a>
               </div>
             </div>
           )}

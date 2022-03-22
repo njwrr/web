@@ -23,10 +23,10 @@ async function fetchFromAPI(requestURL) {
   });
 }
 
-const logger = RequestLogger(/api.opendota.com\/api/);
+const logger = RequestLogger(/api.dotamax.club\/api/);
 
 function path2file(url) {
-  return sanitize(url.replace('https://api.opendota.com/api/', ''), {
+  return sanitize(url.replace('https://api.dotamax.clubs/api/', ''), {
     replacement: '_',
   }).substr(0, 45);
 }
@@ -52,7 +52,7 @@ export const fixtureAfterHook = async (ctx) => {
 
 
 const mock = RequestMock()
-  .onRequestTo(/api.opendota.com\/api/).respond((req, res) => {
+  .onRequestTo(/api.dotamax.club\/api/).respond((req, res) => {
     const data = fs.readFileSync(`./testcafe/cachedAjax/${path2file(req.url)}.json`, 'utf8');
 
     res.headers['Access-Control-Allow-Origin'] = '*';

@@ -363,7 +363,7 @@ const MatchHeader = ({ match, strings }) => {
                 height="24px"
               />
             }
-            href="https://dota-coach.com?s=OpenDota&c=analytics"
+            href="https://dota-coach.com?s=DotaMax&c=analytics"
             target="_blank"
             rel="noopener noreferrer"
           />
@@ -374,7 +374,7 @@ const MatchHeader = ({ match, strings }) => {
             icon={
               <img src="/assets/images/rivalry-icon.png" alt="" height="24px" />
             }
-            href="https://www.rivalry.com/opendota"
+            href="https://www.rivalry.com/DotaMax"
             target="_blank"
             rel="noopener noreferrer"
           />

@@ -65,7 +65,7 @@ const matchPages = (strings) => {
     fantasyColumns,
   } = mcs(strings);
 
-  const gosuUrl = 'https://gosu.ai/dota/?utm_source=opendota&utm_medium=cpc&utm_campaign=';
+  const gosuUrl = 'https://gosu.ai/dota/?utm_source=DotaMax&utm_medium=cpc&utm_campaign=';
   const gosuIcon = '/assets/images/gosu-24px.png';
 
   return [Overview(strings, gosuUrl, gosuIcon), {

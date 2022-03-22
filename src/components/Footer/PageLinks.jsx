@@ -5,22 +5,22 @@ import PropTypes from 'prop-types';
 const PageLinks = ({ strings }) => {
   const links = [{
     name: strings.app_about,
-    path: '//blog.opendota.com/2014/08/01/faq/',
+    path: '//blog.DotaMax.com/2014/08/01/faq/',
   }, {
     name: strings.app_privacy_terms,
-    path: '//blog.opendota.com/2014/08/01/faq/#what-is-your-privacy-policy',
+    path: '//blog.DotaMax.com/2014/08/01/faq/#what-is-your-privacy-policy',
   }, {
     name: strings.app_api_docs,
-    path: '//docs.opendota.com',
+    path: '//docs.DotaMax.com',
   }, {
     name: strings.app_blog,
     path: '//odota.github.io/blog',
   }, {
     name: strings.app_translate,
-    path: '//translate.opendota.com/',
+    path: '//translate.DotaMax.com/',
   }, {
     name: strings.app_donate,
-    path: '//carry.opendota.com/',
+    path: '//carry.DotaMax.com/',
   }, {
     name: strings.app_netlify,
     path: '//www.netlify.com',

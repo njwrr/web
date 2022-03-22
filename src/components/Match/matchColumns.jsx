@@ -56,7 +56,7 @@ export default (strings) => {
       heroID={row.hero_id}
       showGuide={showGuide}
       guideType={guideType}
-      guideUrl={heroes[row.hero_id] && `https://moremmr.com/en/heroes/${heroName}/videos?utm_source=opendota&utm_medium=heroes&utm_campaign=${heroName}`}
+      guideUrl={heroes[row.hero_id] && `https://moremmr.com/en/heroes/${heroName}/videos?utm_source=DotaMax&utm_medium=heroes&utm_campaign=${heroName}`}
       randomed={row.randomed}
       repicked={row.repicked}
       predictedVictory={row.pred_vict}

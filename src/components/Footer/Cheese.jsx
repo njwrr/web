@@ -11,7 +11,7 @@ const Cheese = ({ strings }) => (
         {strings.app_donation_goal}
       </span>
       <p style={{ marginTop: 5 }}>
-        <a href="//carry.opendota.com">
+        <a href="//carry.DotaMax.com">
           {strings.app_sponsorship}
         </a>
       </p>

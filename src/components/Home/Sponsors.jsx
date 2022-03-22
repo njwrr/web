@@ -39,7 +39,7 @@ const Sponsors = ({ strings }) => (
     <div className="images">
       {process.env.REACT_APP_ENABLE_DOTA_COACH && (
         <a
-          href="https://dota-coach.com?s=OpenDota&c=main"
+          href="https://www.njrrxx.com"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -55,7 +55,7 @@ const Sponsors = ({ strings }) => (
       </a>
       {process.env.REACT_APP_ENABLE_RIVALRY && (
         <a
-          href="https://www.rivalry.com/opendota"
+          href="https://www.rivalry.com/DotaMax"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -64,7 +64,7 @@ const Sponsors = ({ strings }) => (
       )}
       {process.env.REACT_APP_ENABLE_GOSUAI && (
         <a
-          href="https://gosu.ai/dota/?utm_source=opendota&utm_medium=cpc&utm_campaign=Home"
+          href="https://gosu.ai/dota/?utm_source=DotaMax&utm_medium=cpc&utm_campaign=Home"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -77,7 +77,7 @@ const Sponsors = ({ strings }) => (
         label={
           <span style={{ fontWeight: 300 }}>{strings.home_become_sponsor}</span>
         }
-        href="//carry.opendota.com"
+        href="//carry.DotaMax.com"
       />
     </ButtonsDiv>
   </StyledDiv>
