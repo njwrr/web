@@ -177,8 +177,3 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = dispatch => ({
-  getPulls: repo => dispatch(getGithubPulls(repo)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(RequestLayer);

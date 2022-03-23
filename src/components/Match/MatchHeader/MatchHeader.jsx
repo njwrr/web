@@ -353,21 +353,6 @@ const MatchHeader = ({ match, strings }) => {
             rel="noopener noreferrer"
           />
         )}
-        {process.env.REACT_APP_ENABLE_DOTA_COACH && (
-          <FlatButton
-            label={strings.app_dota_coach_button}
-            icon={
-              <img
-                src="/assets/images/dota-coach-icon.png"
-                alt=""
-                height="24px"
-              />
-            }
-            href="https://dota-coach.com?s=DotaMax&c=analytics"
-            target="_blank"
-            rel="noopener noreferrer"
-          />
-        )}
         {process.env.REACT_APP_ENABLE_RIVALRY && (
           <FlatButton
             label={strings.app_rivalry}
