@@ -20,7 +20,7 @@ left: 50%;
 right: 50%;
 display: grid;
 padding-top: 35px;
-background-color: rgba(14,84,113,37%);
+background-color: rgba(55,55,55,37%);
 grid-template-columns: 1fr minmax(min-content, ${constants.appWidth}px) 1fr;
 
 .container {

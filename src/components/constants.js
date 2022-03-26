@@ -30,7 +30,7 @@ export default {
   primaryTextColor: 'rgba(255, 255, 255, 0.87)',
   textColorSecondary: 'rgba(255, 255, 255, 0.6)',
   secondaryTextColor: 'rgba(255, 255, 255, 0.6)',
-  primarySurfaceColor: 'rgb(22, 40, 62)',
+  primarySurfaceColor: 'rgb(17, 20, 26)',
   secondarySurfaceColor: 'rgb(39, 39, 58)',
   tableHeaderSurfaceColor: 'rgba(0, 0, 0, .3)',
   tableRowOddSurfaceColor: 'rgba(255, 255, 255, .019)',

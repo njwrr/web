@@ -19,7 +19,7 @@ const Styled = styled.header`
   left: 50%;
   right: 50%;
   padding-top: 35px;
-  background-color: rgba(14, 84, 113, 37%);
+  background-color: rgba(55, 55, 55, 37%);
 
   .matchInfo {
     display: grid;

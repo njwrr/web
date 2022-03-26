@@ -69,7 +69,7 @@ const DropdownMenuItem = styled(MenuItem)`
 
 const ToolbarHeader = styled(Toolbar)`
   backdrop-filter: blur(16px);
-  background-color: rgba(19, 111, 149, 37%) !important;
+  background-color: rgba(0, 0, 0, 37%) !important;
   box-shadow: 2px 2px 3px -2px rgb(0 0 0 / 23%);
   height: 56px;
   left: 0;
@@ -198,21 +198,6 @@ const AccountGroup = () => (
   </VerticalAlignToolbar>
 );
 
-const ReportBug = ({ strings }) => (
-  <DropdownMenuItem
-    component="a"
-    href={REPORT_BUG_PATH}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <BugReport style={{ marginRight: 32, width: 24, height: 24 }} />
-    {strings.app_report_bug}
-  </DropdownMenuItem>
-);
-
-ReportBug.propTypes = {
-  strings: PropTypes.shape({}),
-};
 
 const LogOut = ({ strings }) => (
   <DropdownMenuItem
@@ -266,11 +251,6 @@ const Header = ({ location, disableSearch }) => {
       to: '/combos',
       label: strings.combos,
     },
-    {
-      key: 'header_api',
-      to: '/api-keys',
-      label: strings.header_api,
-    },
   ];
 
   const drawerPages = [
@@ -309,7 +289,6 @@ const Header = ({ location, disableSearch }) => {
           {small && <AccountGroup />}
           <SettingsGroup>
             <LocalizationMenu />
-            <ReportBug strings={strings} />
             {user ? <LogOut strings={strings} /> : null}
           </SettingsGroup>
         </VerticalAlignDiv>

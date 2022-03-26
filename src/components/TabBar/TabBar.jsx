@@ -9,7 +9,7 @@ import constants from '../constants';
 const StyledMain = styled.main`
   position: relative;
   margin: 0px 0px 30px 0px;
-  background-color: rgba(14, 84, 113, 37%);
+  background-color: rgba(55, 55, 55, 37%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   width: 100vw;
   left: 50%;

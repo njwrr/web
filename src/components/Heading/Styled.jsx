@@ -20,7 +20,7 @@ export const StyledDiv = styled.div`
     align-items: baseline;
     letter-spacing: 10px;
     font-weight: bold; 
-    background-color: rgba(14, 84, 113, 37%);
+    background-color: rgba(55, 55, 55, 37%);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
     &.with-tabbar {
