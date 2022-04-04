@@ -16,6 +16,7 @@ import React, { useCallback, useEffect, useState, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import localStorage from "localStorage";
 
 import { GITHUB_REPO } from '../../config';
 import AccountWidget from '../AccountWidget';
@@ -200,11 +201,7 @@ const AccountGroup = () => (
 
 
 const LogOut = ({ strings }) => (
-  <DropdownMenuItem
-    component="a"
-    href={`${process.env.REACT_APP_API_HOST}/logout`}
-    rel="noopener noreferrer"
-  >
+  <DropdownMenuItem onClick={() => {localStorage.removeItem('user');}} component="a" href='/' rel="noopener noreferrer">
     <LogOutButton style={{ marginRight: 32, width: 24, height: 24 }} />
     {strings.app_logout}
   </DropdownMenuItem>
@@ -218,7 +215,8 @@ const Header = ({ location, disableSearch }) => {
   const [Announce, setAnnounce] = useState(null);
   const [menuIsOpen, setMenuState] = useState(false);
   const small = useSelector((state) => state.browser.greaterThan.small);
-  const user = useSelector((state) => state.app.metadata.data.user);
+  const user = JSON.parse(localStorage.getItem('user'));
+
   const strings = useSelector((state) => state.app.strings);
 
   useEffect(() => {
@@ -326,22 +324,18 @@ const Header = ({ location, disableSearch }) => {
                   </DrawerLink>
                   <DrawerLink
                     as="a"
-                    href={`${process.env.REACT_APP_API_HOST}/logout`}
+                    href="/"
                   >
-                    <ListItem button onClick={() => setMenuState(false)}>
-                      <ListItemText primary={strings.app_logout} />
+                    <ListItem
+                      button
+                      onClick={() => {localStorage.removeItem('user');}}
+                    >
+                      <ListItemText primary='解绑' />
                     </ListItem>
                   </DrawerLink>
                 </>
               ) : (
-                <DrawerLink
-                  as="a"
-                  href={`${process.env.REACT_APP_API_HOST}/login`}
-                >
-                  <ListItem button onClick={() => setMenuState(false)}>
-                    <ListItemText primary={strings.app_login} />
-                  </ListItem>
-                </DrawerLink>
+                <DrawerLink />
               )}
             </List>
           </MenuContent>

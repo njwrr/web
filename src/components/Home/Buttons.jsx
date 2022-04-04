@@ -11,11 +11,7 @@ const Buttons = ({ user, strings }) => (
     {
       !user &&
       <div>
-        <FlatButton
-          label={<span className="label"><b>{strings.home_login}</b> {strings.home_login_desc}</span>}
-          icon={<IconSteam />}
-          href={`${process.env.REACT_APP_API_HOST}/login`}
-        />
+        <FlatButton/>
       </div>
     }
     <div className="bottomButtons">
@@ -34,12 +30,9 @@ Buttons.propTypes = {
   strings: PropTypes.shape({}),
 };
 
-const mapStateToProps = (state) => {
-  const { data } = state.app.metadata;
-  return {
-    user: data.user,
+const mapStateToProps = (state) => ({
+    user: JSON.parse(localStorage.getItem('user')),
     strings: state.app.strings,
-  };
-};
+});
 
 export default connect(mapStateToProps, null)(Buttons);

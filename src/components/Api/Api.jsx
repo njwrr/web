@@ -229,8 +229,8 @@ class KeyManagement extends React.Component {
                               <KeyContainer>{this.state.customer.api_key}</KeyContainer>
                               <p>{strings.api_key_usage.replace('$param', 'api_key=XXXX')}</p>
                               <div style={{ overflow: 'hidden' }}>
-                                <a href={`https://api.DotaMax.com/api/matches/271145478?api_key=${this.state.customer.api_key}`}>
-                                  <KeyContainer>{`https://api.DotaMax.com/api/matches/271145478?api_key=${this.state.customer.api_key}`}</KeyContainer>
+                                <a href={`https://api.dotamax.cloud/api/matches/271145478?api_key=${this.state.customer.api_key}`}>
+                                  <KeyContainer>{`https://api.dotamax.cloud/api/matches/271145478?api_key=${this.state.customer.api_key}`}</KeyContainer>
                                 </a>
                               </div>
                               <p>

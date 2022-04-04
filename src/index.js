@@ -10,7 +10,6 @@ import App from './components/App';
 // import { unregister } from './common/serviceWorker';
 
 // Fetch metadata (used on all pages)
-store.dispatch(getMetadata());
 // Fetch strings
 store.dispatch(getStrings());
 store.dispatch(getAbilities());

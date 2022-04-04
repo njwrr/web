@@ -4,7 +4,9 @@ import { connect } from 'react-redux';
 import { Box } from '@material-ui/core';
 import FlatButton from 'material-ui/FlatButton';
 import ActionUpdate from 'material-ui/svg-icons/navigation/refresh';
+import ActionCheck from 'material-ui/svg-icons/navigation/apps';
 import styled from 'styled-components';
+import localStorage from "localStorage";
 import { toggleShowForm as toggleShowFormAction } from '../../../actions/formActions';
 import GamemodeToggle from '../../../components/GamemodeToggle';
 
@@ -53,7 +55,8 @@ class PlayerButtons extends React.Component {
             onClick={() => {
               fetch(
                 `${process.env.REACT_APP_API_HOST}/api/players/${playerId}/refresh`,
-                { method: 'POST' },
+                { method: 'POST',
+                },
               );
               this.setState({ disableRefresh: true });
             }}
@@ -63,6 +66,16 @@ class PlayerButtons extends React.Component {
         <Box ml="16px">
           <GamemodeToggle />
         </Box>
+        <div data-hint='绑定个人账号' data-hint-position="left">
+                  <FlatButton
+                    icon={<ActionCheck />}
+                    disabled={this.state.disableRefresh}
+                    onClick={() => {
+                      localStorage.setItem('user',`{"account_id":${playerId}}`);
+                    }}
+                    label='绑定账号'
+                  />
+        </div>
       </Styled>
     );
   }

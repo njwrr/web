@@ -22,10 +22,7 @@ const AccountWidget = ({
       {!error && !loading && user
         ? <LoggedIn style={style} playerId={user.account_id} />
         :
-        <Button href={`${process.env.REACT_APP_API_HOST}/login`}>
-          <IconSteam />
-          <ButtonLabel>{strings.app_login}</ButtonLabel>
-        </Button>
+        <Button />
       }
     </div>
   );
@@ -44,7 +41,7 @@ const mapStateToProps = (state) => {
   return {
     loading,
     error,
-    user: data.user,
+    user: JSON.parse(localStorage.getItem('user')),
     strings: state.app.strings,
   };
 };
