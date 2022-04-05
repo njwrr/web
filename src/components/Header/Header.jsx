@@ -287,7 +287,6 @@ const Header = ({ location, disableSearch }) => {
           {small && <AccountGroup />}
           <SettingsGroup>
             <LocalizationMenu />
-            {user ? <LogOut strings={strings} /> : null}
           </SettingsGroup>
         </VerticalAlignDiv>
         <SwipeableDrawer

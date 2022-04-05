@@ -46,7 +46,7 @@ class PlayerButtons extends React.Component {
 
   render() {
     const { playerId, strings } = this.props;
-    return (
+    return localStorage.getItem("user") == null ? (
       <Styled>
         <div data-hint={strings.app_refresh} data-hint-position="top">
           <FlatButton
@@ -58,7 +58,7 @@ class PlayerButtons extends React.Component {
                 { method: 'POST',
                 },
               );
-              this.setState({ disableRefresh: true });
+              this.setState({ disableRefresh: false });
             }}
             label={strings.app_refresh_label}
           />
@@ -72,12 +72,46 @@ class PlayerButtons extends React.Component {
                     disabled={this.state.disableRefresh}
                     onClick={() => {
                       localStorage.setItem('user',`{"account_id":${playerId}}`);
+                      this.setState({ disableRefresh: false });
                     }}
                     label='绑定账号'
                   />
         </div>
       </Styled>
-    );
+    ) : (
+          <Styled>
+            <div data-hint={strings.app_refresh} data-hint-position="top">
+              <FlatButton
+                icon={<ActionUpdate />}
+                disabled={this.state.disableRefresh}
+                onClick={() => {
+                  fetch(
+                    `${process.env.REACT_APP_API_HOST}/api/players/${playerId}/refresh`,
+                    { method: 'POST',
+                    },
+                  );
+                  this.setState({ disableRefresh: false });
+                }}
+                label={strings.app_refresh_label}
+              />
+            </div>
+            <Box ml="16px">
+              <GamemodeToggle />
+            </Box>
+            <div data-hint='解绑' data-hint-position="left">
+                      <FlatButton
+                        icon={<ActionCheck />}
+                        disabled={this.state.disableRefresh}
+                        onClick={() => {
+                          localStorage.removeItem('user');
+                          this.setState({ disableRefresh: false });
+                        }}
+                        label='解绑'
+                      />
+            </div>
+          </Styled>
+        )
+    ;
   }
 }
 
