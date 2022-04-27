@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { createBrowserHistory } from 'history';
+import { createHashHistory } from 'history';
 import { render, hydrate } from 'react-dom';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import store from './store';
 import { getMetadata, getStrings, getAbilities, getHeroAbilities, getNeutralAbilities, getAbilityIds } from './actions';
 import App from './components/App';
@@ -17,7 +17,7 @@ store.dispatch(getHeroAbilities());
 store.dispatch(getNeutralAbilities());
 store.dispatch(getAbilityIds());
 
-const history = createBrowserHistory();
+const history = createHashHistory();
 
 if (process.env.NODE_ENV === 'production') {
   const ReactGA = require('react-ga'); // eslint-disable-line global-require
@@ -33,9 +33,9 @@ const rootElement = document.getElementById('root');
 
 const app = (
   <Provider store={store}>
-    <BrowserRouter history={history}>
+    <HashRouter history={history}>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </Provider>
 );
 

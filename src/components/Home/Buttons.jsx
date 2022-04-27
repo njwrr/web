@@ -31,7 +31,7 @@ Buttons.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-    user: JSON.parse(localStorage.getItem('user')),
+    user: localStorage.getItem('busId'),
     strings: state.app.strings,
 });
 

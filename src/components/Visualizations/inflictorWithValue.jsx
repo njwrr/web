@@ -221,10 +221,9 @@ class InflictorWithValue extends React.Component {
             data-for={ttId}
             onMouseEnter={this.setShowTooltip}
           >
-            {(!type || type === 'purchase' || type === 'backpack' || type === 'neutral') &&
-            <object data={image} height="27px" type="image/png">
-              <img src="/assets/images/Dota2Logo.svg" alt="" style={{ filter: 'grayscale(60%)', height: '27px' }} />
-            </object>}
+            {(!type || type === 'purchase' || type === 'backpack' || type === 'neutral')
+            && <div><img src={image} alt="mis" style={{ filter: 'grayscale(60%)', height: '27px' }}/></div>
+            }
             {type === 'buff' &&
             <div
               className="buff"

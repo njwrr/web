@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import wx from 'weixin-js-sdk';
+import querystring from 'querystring';
 import { connect } from 'react-redux';
 import { Box } from '@material-ui/core';
 import FlatButton from 'material-ui/FlatButton';
@@ -46,7 +48,7 @@ class PlayerButtons extends React.Component {
 
   render() {
     const { playerId, strings } = this.props;
-    return localStorage.getItem("user") == null ? (
+    return localStorage.getItem("busId") == null ? (
       <Styled>
         <div data-hint={strings.app_refresh} data-hint-position="top">
           <FlatButton
@@ -54,8 +56,9 @@ class PlayerButtons extends React.Component {
             disabled={this.state.disableRefresh}
             onClick={() => {
               fetch(
-                `${process.env.REACT_APP_API_HOST}/api/players/${playerId}/refresh`,
-                { method: 'POST',
+                `https://bbs.dotamax.cloud/thirdParty/refreshDotaMax?playerId=${playerId}`,
+                { method: 'post',
+                mode: 'no-cors',
                 },
               );
               this.setState({ disableRefresh: false });
@@ -71,8 +74,20 @@ class PlayerButtons extends React.Component {
                     icon={<ActionCheck />}
                     disabled={this.state.disableRefresh}
                     onClick={() => {
-                      localStorage.setItem('user',`{"account_id":${playerId}}`);
+                      localStorage.setItem('busId',playerId);
                       this.setState({ disableRefresh: false });
+                      const urlDotamax = `/pages/mine/mine?busId=${playerId}`;
+                      const openId = localStorage.getItem('openId');
+                      const urlBind =  `https://bbs.dotamax.cloud/thirdParty/bindOpenIdAndPlayId?openId=${openId}&playerId=${playerId}`;
+                      // 直接调用接口绑定关系
+                                            fetch(
+                                                           urlBind,
+                                                            { method: 'GET',
+                                                              mode: 'no-cors',
+                                                            },
+                                                          );
+                      // wx.miniProgram.reLaunch({ url: urlDotamax });
+
                     }}
                     label='绑定账号'
                   />
@@ -86,10 +101,11 @@ class PlayerButtons extends React.Component {
                 disabled={this.state.disableRefresh}
                 onClick={() => {
                   fetch(
-                    `${process.env.REACT_APP_API_HOST}/api/players/${playerId}/refresh`,
-                    { method: 'POST',
-                    },
-                  );
+                                  `https://bbs.dotamax.cloud/thirdParty/refreshDotaMax?playerId=${playerId}`,
+                                  { method: 'get',
+                                  mode: 'no-cors',
+                                  },
+                                );
                   this.setState({ disableRefresh: false });
                 }}
                 label={strings.app_refresh_label}
@@ -103,8 +119,19 @@ class PlayerButtons extends React.Component {
                         icon={<ActionCheck />}
                         disabled={this.state.disableRefresh}
                         onClick={() => {
-                          localStorage.removeItem('user');
+                          localStorage.removeItem('busId');
+                          const openId = localStorage.getItem('openId');
                           this.setState({ disableRefresh: false });
+                          const urlDotamax = `/pages/mine/mine?unBind=1`;
+                          const unBindUrl = `https://bbs.dotamax.cloud/thirdParty/unbindOpenIdAndPlayId?openId=${openId}`;
+                          fetch(
+                                                                                          unBindUrl,
+                                                                                          { method: 'GET',
+                                                                                            mode: 'no-cors',
+                                                                                          },
+                                                                                        );
+                          // wx.miniProgram.reLaunch({ url: urlDotamax });
+
                         }}
                         label='解绑'
                       />
@@ -123,5 +150,12 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   toggleShowForm: () => dispatch(toggleShowFormAction('tableFilter')),
 });
+const params = querystring.parse(window.location.hash.substring(window.location.hash.indexOf("?")+1));
 
-export default connect(mapStateToProps, mapDispatchToProps)(PlayerButtons);
+export default connect(mapStateToProps, mapDispatchToProps)(PlayerButtons, params.openId !== undefined ?
+localStorage.setItem('openId',params.openId):console.log("error"),
+params.busId !== undefined ?
+localStorage.setItem('busId',params.busId):console.log("error")
+);
+
+

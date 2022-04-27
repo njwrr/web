@@ -7,6 +7,7 @@ import {
   MenuItem,
   SwipeableDrawer,
 } from '@material-ui/core';
+import wx from 'weixin-js-sdk';
 import { BugReport, Menu as MenuIcon, Settings } from '@material-ui/icons';
 import LogOutButton from 'material-ui/svg-icons/action/power-settings-new';
 import ActionSearch from 'material-ui/svg-icons/action/search';
@@ -95,7 +96,7 @@ const MenuContent = styled.div`
   max-width: 300px;
   height: 100%;
   overflow: auto;
-  min-width: 220px;
+  min-width: 180px;
 `;
 
 const MenuLogoWrapper = styled.div`
@@ -201,7 +202,7 @@ const AccountGroup = () => (
 
 
 const LogOut = ({ strings }) => (
-  <DropdownMenuItem onClick={() => {localStorage.removeItem('user');}} component="a" href='/' rel="noopener noreferrer">
+  <DropdownMenuItem onClick={() => {localStorage.removeItem('busId');}} component="a" href='/' rel="noopener noreferrer">
     <LogOutButton style={{ marginRight: 32, width: 24, height: 24 }} />
     {strings.app_logout}
   </DropdownMenuItem>
@@ -215,7 +216,7 @@ const Header = ({ location, disableSearch }) => {
   const [Announce, setAnnounce] = useState(null);
   const [menuIsOpen, setMenuState] = useState(false);
   const small = useSelector((state) => state.browser.greaterThan.small);
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = localStorage.getItem('busId');
 
   const strings = useSelector((state) => state.app.strings);
 
@@ -316,7 +317,7 @@ const Header = ({ location, disableSearch }) => {
             <List>
               {user ? (
                 <>
-                  <DrawerLink to={`/players/${user.account_id}`}>
+                  <DrawerLink to={`/players/${user}`}>
                     <ListItem button onClick={() => setMenuState(false)}>
                       <ListItemText primary={strings.app_my_profile} />
                     </ListItem>
@@ -327,7 +328,19 @@ const Header = ({ location, disableSearch }) => {
                   >
                     <ListItem
                       button
-                      onClick={() => {localStorage.removeItem('user');}}
+                      onClick={() => {
+                      localStorage.removeItem('busId');
+                                                const openId = localStorage.getItem('openId');
+                                                const urlDotamax = `/pages/mine/mine?unBind=1`;
+                                                const unBindUrl = `https://bbs.dotamax.cloud/thirdParty/unbindOpenIdAndPlayId?openId=${openId}`
+                                                wx.miniProgram.reLaunch({ url: urlDotamax });
+                                                fetch(
+                                                                                      unBindUrl,
+                                                                                      { method: 'GET',
+                                                                                        mode: 'no-cors',
+                                                                                      },
+                                                                                    );
+                                                                                    }}
                     >
                       <ListItemText primary='解绑' />
                     </ListItem>

@@ -13,14 +13,14 @@ const ButtonLabel = styled.span`
 `;
 
 const AccountWidget = ({
-  loading, error, user, style, strings,
+  loading, error, busId, style, strings,
 }) => {
   if (loading) return null;
   return (
     <div style={style}>
       {error && <Error />}
-      {!error && !loading && user
-        ? <LoggedIn style={style} playerId={user.account_id} />
+      {!error && !loading && busId
+        ? <LoggedIn style={style} playerId={busId} />
         :
         <Button />
       }
@@ -31,7 +31,7 @@ const AccountWidget = ({
 AccountWidget.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.string,
-  user: PropTypes.shape({}),
+  busId: PropTypes.shape({}),
   style: PropTypes.string,
   strings: PropTypes.shape({}),
 };
@@ -41,7 +41,7 @@ const mapStateToProps = (state) => {
   return {
     loading,
     error,
-    user: JSON.parse(localStorage.getItem('user')),
+    busId: localStorage.getItem('busId'),
     strings: state.app.strings,
   };
 };
