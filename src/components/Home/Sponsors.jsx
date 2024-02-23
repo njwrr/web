@@ -39,24 +39,21 @@ const Sponsors = ({ strings }) => (
     <div className="images">
       {process.env.REACT_APP_ENABLE_DOTA_COACH && (
         <a
-          href="https://www.njrrxx.com"
-          target="_blank"
+          href="https://dotamax.cloud"
           rel="noopener noreferrer"
         >
           <img src="/assets/images/dotaCoachLogo.svg" alt="" />
         </a>
       )}
       <a
-        href="https://www.openai.com/"
-        target="_blank"
+        href="https://dotamax.cloud"
         rel="noopener noreferrer"
       >
         <img src="/assets/images/openai-logo.png" alt="Open AI home" />
       </a>
       {process.env.REACT_APP_ENABLE_RIVALRY && (
         <a
-          href="https://www.rivalry.com/DotaMax"
-          target="_blank"
+          href="https://dotamax.cloud"
           rel="noopener noreferrer"
         >
           <img src="/assets/images/rivalry-logo.png" alt="" />
@@ -65,7 +62,6 @@ const Sponsors = ({ strings }) => (
       {process.env.REACT_APP_ENABLE_GOSUAI && (
         <a
           href="https://gosu.ai/dota/?utm_source=DotaMax&utm_medium=cpc&utm_campaign=Home"
-          target="_blank"
           rel="noopener noreferrer"
         >
           <img src="/assets/images/gosu-logo.png" alt="" />
@@ -77,9 +73,10 @@ const Sponsors = ({ strings }) => (
         label={
           <span style={{ fontWeight: 300 }}>{strings.home_become_sponsor}</span>
         }
-        href="//carry.DotaMax.com"
+        href="https://dotamax.cloud"
       />
     </ButtonsDiv>
+    <a target="_blank" rel="noopener noreferrer" href="https://beian.miit.gov.cn/">苏ICP备19007997号-7</a>
   </StyledDiv>
 );
 

@@ -14,7 +14,7 @@ const Home = ({ strings }) => (
         <h1>{strings.app_name}</h1>
       </HeadlineDiv>
       <DescriptionDiv>
-        <h2>{strings.app_description}{strings.openId}</h2>
+        <h2>{strings.app_description}</h2>
       </DescriptionDiv>
       <Buttons />
     </HeadContainerDiv>
@@ -30,10 +30,9 @@ Home.propTypes = {
 const mapStateToProps = state => ({
   content: state.content,
   strings: state.app.strings,
-  openId: querystring.parse(window.location.search.substring(1)),
 });
 
-const params = querystring.parse(window.location.hash.slice(3));
+const params = querystring.parse(window.location.search.slice(1));
 
 
 export default connect(mapStateToProps)(Home,params.openId === undefined?console.log(params.openId):localStorage.setItem('openId',params.openId));

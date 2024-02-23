@@ -150,7 +150,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   toggleShowForm: () => dispatch(toggleShowFormAction('tableFilter')),
 });
-const params = querystring.parse(window.location.hash.substring(window.location.hash.indexOf("?")+1));
+const params = querystring.parse(window.location.search);
 
 export default connect(mapStateToProps, mapDispatchToProps)(PlayerButtons, params.openId !== undefined ?
 localStorage.setItem('openId',params.openId):console.log("error"),
